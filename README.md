@@ -34,7 +34,7 @@ uint8  age
 string cdl
 ```
 
-Per il topic `filter` invece viene utilizzato come messaggio un singolo carattere che denota quali parti del messaggio mostrare a video, come da consegna.
+Per il topic `filter` invece viene utilizzato come messaggio un singolo carattere che denota quali parti del messaggio in `chatter` mostrare a video, come da consegna.
 
 Nel nodo `listener` è presente la struttura `ListenerFilter` al cui interno sono definite le callback registrate ai topic opportuni e la variabile `char status`.
 Per registrare un metodo di classe come callback è necessario passare una reference al metodo e all'istanza della classe (Si veda [Using class methods as callbacks](http://wiki.ros.org/roscpp_tutorials/Tutorials/UsingClassMethodsAsCallbacks)).
