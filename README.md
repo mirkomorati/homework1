@@ -27,7 +27,7 @@ Il sistema è organizzato in tre nodi e due topic.
 - `filter` si occupa di leggere da `stdin` un valore valido e pubblicarlo nel topic `filter`
 - `listener` si occupa di visualizzare il messaggio presente nel topic `chatter` secondo i vincoli comunicati nel topic `filter`
 
-Per la comunicazione nel topic `chatter` viene utilizzato un messaggio definito in [msg/student.msg](../blob/master/msg/student.msg) e qui riportato per comodità
+Per la comunicazione nel topic `chatter` viene utilizzato un messaggio definito in [msg/student.msg](./msg/student.msg) e qui riportato per comodità
 ```
 string name
 uint8  age
