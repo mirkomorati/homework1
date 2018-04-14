@@ -1,0 +1,5 @@
+<launch>
+    <node name="talker" pkg="homework1" type="talker" output="screen" launch-prefix="xterm -e"/>
+    <node name="listener" pkg="homework1" type="listener" output="screen" launch-prefix="xterm -e"/>
+    <node name="filter" pkg="homework1" type="filter" output="screen"/>
+</launch>
