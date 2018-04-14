@@ -1,5 +1,6 @@
 #include <ros/ros.h>
 #include <std_msgs/Char.h>
+
 #include <iostream>
 #include <sstream>
 
@@ -18,6 +19,16 @@ int main(int argc, char **argv) {
     std_msgs::Char msg;
     while(std::cout << "> ", std::cin >> msg.data) {
         ros::spinOnce();
-        filter_pub.publish(msg);
+        switch (msg.data) {
+            case 'a':
+            case 'n':
+            case 'e':
+            case 'c':
+                filter_pub.publish(msg);
+                break;
+            default:
+                ROS_INFO("Invalid selection");
+                break;
+        }
     }
 }

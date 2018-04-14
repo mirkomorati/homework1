@@ -1,23 +1,16 @@
 #include <ros/ros.h>
 #include <std_msgs/Char.h>
 #include "homework1/student.h"
+
 #include <sstream>
 
-struct filterStatus {
+struct ListenerFilter {
     char status;
+    
+    ListenerFilter() : status('a') {};
 
     void changeStatusCallback(const std_msgs::Char::ConstPtr &msg) {
-        switch (msg->data) {
-            case 'a':
-            case 'n':
-            case 'e':
-            case 'c':
-                status = msg->data;
-                break;
-            default:
-                ROS_INFO("Invalid status");
-                break;
-        }
+        status = msg->data;
     }
 
     void chatterCallback(const homework1::student::ConstPtr &msg) {
@@ -48,11 +41,11 @@ int main(int argc, char **argv) {
 
     ros::NodeHandle n;
 
-    filterStatus s;
-    s.status = 'a';
-    ros::Subscriber filter_sub = n.subscribe("filter", 1, &filterStatus::changeStatusCallback, &s);
+    ListenerFilter s;
 
-    ros::Subscriber chatter_sub = n.subscribe("chatter", 1, &filterStatus::chatterCallback, &s);
+    ros::Subscriber filter_sub = n.subscribe("filter", 1, &ListenerFilter::changeStatusCallback, &s);
+
+    ros::Subscriber chatter_sub = n.subscribe("chatter", 1, &ListenerFilter::chatterCallback, &s);
 
     ros::spin();
     return 0;
